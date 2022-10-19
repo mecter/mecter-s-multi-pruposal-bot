@@ -70,7 +70,7 @@ s4d.client.on('messageDelete', async (s4dmessage) => {
 
 });
 
-await s4d.client.login('OTc1NTI3MjgyMjU5MTQ0Nzk0.G-eMbS.6L8GoykPkSjEr1o_ryW1rCiflBFWEO2_kHShM8').catch((e) => {
+await s4d.client.login('bot token here').catch((e) => {
         s4d.tokenInvalid = true;
         s4d.tokenError = e;
         if (e.toString().toLowerCase().includes("token")) {
