@@ -17,6 +17,7 @@
     const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
     // block imports
+    const akinator = require("discord.js-akinator");
     const os = require("os-utils");
     let URL = require('url')
     const ms = require("ms")
@@ -75,7 +76,7 @@
     
 
     // blockly code
-    var author, authorrr, abc, channel, oldmsg, message, newmsg, channellll, response;
+    var author, authorrr, abc, channel, oldmsg, message, newmsg, channellll, response, gamemode;
     
     function listsGetRandomItem(list, remove) {
       var x = Math.floor(Math.random() * list.length);
@@ -374,6 +375,73 @@
         await interaction.reply({ embeds: [(embed
         )], ephemeral: false, components: [] });
       }
+      if ((interaction.commandName) == 'akinator') {
+        if ((interaction.options.getString('gamemode')) == 'character') {
+          gamemode = 'character';
+        } else if ((interaction.options.getString('gamemode')) == 'object') {
+          gamemode = 'object';
+        } else if ((interaction.options.getString('gamemode')) == 'animal') {
+          gamemode = 'animal';
+        }
+        akinator(s4dmessage, {
+                language: "en",
+                childMode: true,
+                gameType: gamemode,
+                useButtons: true
+        })
+        // true - only the person who t=did the comamnd can see it
+        //
+        // false - everyone can see it
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        await interaction.reply({ content: 'done!', ephemeral: false, components: [] });
+      }
       if ((interaction.commandName) == '8ball') {
         response = ['don\'t count on it', 'My reply is no', 'My sources say no', 'Outlook not so good', 'Very doubtful', 'As i see it, yes', 'Most likely', 'Outlook good', 'Sings point to yes', 'Yes', 'It is certain', 'It is decidely so', 'Without a doubt', 'Yes - definitly', 'You may reply on it', 'Answer unclear, try again', 'Ask again later', 'Better not tell you now', 'Cannot predict now', 'Concentrate and ask again'];
         var magicball = new Discord.MessageEmbed();
@@ -605,7 +673,7 @@
     
         });
     
-    await s4d.client.login('token').catch((e) => {
+    await s4d.client.login('OTc1NTI3MjgyMjU5MTQ0Nzk0.GnylaE.2pBqIBgS2A7Xw-qxxbarU7gUmCI9lC3A6sGLRM').catch((e) => {
             const tokenInvalid = true;
             const tokenError = e;
             if (e.toString().toLowerCase().includes("token")) {
@@ -630,7 +698,7 @@
     });
     
     s4d.client.on('ready', async () => {
-      s4d.client.user.setPresence({status: "online",activities:[{name:'version 2.1078lines-of-code',type:"WATCHING"}]});
+      s4d.client.user.setPresence({status: "online",activities:[{name:'version 2.2',type:"WATCHING"}]});
     
     });
     
@@ -664,6 +732,29 @@
     
     synchronizeSlashCommands(s4d.client, [
       {
+          name: 'akinator',
+      		description: 'play akinator',
+      		options: [
+              {
+            type: 3,
+        	name: 'gamemode',
+            required: true,
+        	description: 'select a gamemode',
+            choices: [
+                  {
+              name: String('character'),
+              value: String('character')
+          },{
+              name: String('object'),
+              value: String('object')
+          },{
+              name: String('animal'),
+              value: String('animal')
+          },
+            ]
+        },
+          ]
+      },{
           name: 'tictactoe',
       		description: 'play tictactoe against someone',
       		options: [
